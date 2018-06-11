@@ -1,0 +1,14 @@
+Sub ZipCode()
+    Dim data As Worksheet
+    Dim avg As Worksheet
+    Dim i As Integer
+    Dim zip As Integer
+    
+    Set data = ActiveWorkbook.Sheets("Data")
+    Set avg = ActiveWorkbook.Sheets("Averages")
+    zip = 7
+    For i = 2 To 1000
+        avg.Cells(i, 1) = data.Cells(zip, 1)
+        zip = zip + 8
+    Next i
+End Sub
