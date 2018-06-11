@@ -24,13 +24,61 @@ Sub Average_Income()
     High = 12
     Top = 13
 
-    For i = 2 To 1000
-        If avg.Cells(i, 2) <> 0 Then
+    For i = 2 To 60
+        If data.Cells(Total, 18).Value <> 0 Then
             avg.Cells(i, 2) = data.Cells(Total, 19).Value / data.Cells(Total, 18).Value
             Total = Total + 8
         Else
             avg.Cells(i, 2) = 0
             Total = Total + 8
+        End If
+        
+       If data.Cells(Bottom, 18).Value <> 0 Then
+            avg.Cells(i, 3) = data.Cells(Bottom, 19).Value / data.Cells(Bottom, 18).Value
+            Bottom = Bottom + 8
+        Else
+            avg.Cells(i, 3) = 0
+            Bottom = Bottom + 8
+        End If
+        
+        If data.Cells(Low, 18).Value <> 0 Then
+            avg.Cells(i, 4) = data.Cells(Low, 19).Value / data.Cells(Low, 18).Value
+            Low = Low + 8
+        Else
+            avg.Cells(i, 4) = 0
+            Low = Low + 8
+        End If
+        
+        If data.Cells(Mid, 18).Value <> 0 Then
+            avg.Cells(i, 5) = data.Cells(Mid, 19).Value / data.Cells(Mid, 18).Value
+            Mid = Mid + 8
+        Else
+            avg.Cells(i, 5) = 0
+            Mid = Mid + 8
+        End If
+        
+        If data.Cells(Mid_High, 18).Value <> 0 Then
+            avg.Cells(i, 6) = data.Cells(Mid_High, 19).Value / data.Cells(Mid_High, 18).Value
+            Mid_High = Mid_High + 8
+        Else
+            avg.Cells(i, 6) = 0
+            Mid_High = Mid_High + 8
+        End If
+        
+        If data.Cells(High, 18).Value <> 0 Then
+            avg.Cells(i, 7) = data.Cells(High, 19).Value / data.Cells(High, 18).Value
+            High = High + 8
+        Else
+            avg.Cells(i, 7) = 0
+            High = High + 8
+        End If
+        
+        If data.Cells(Top, 18).Value <> 0 Then
+            avg.Cells(i, 8) = data.Cells(Top, 19).Value / data.Cells(Top, 18).Value
+            Top = Top + 8
+        Else
+            avg.Cells(i, 8) = 0
+            Top = Top + 8
         End If
     Next i
 End Sub
