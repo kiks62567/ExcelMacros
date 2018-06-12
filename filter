@@ -1,0 +1,21 @@
+Sub filter()
+
+Dim num As Worksheet
+Dim text As Worksheet
+Dim filt As Worksheet
+Dim i As Integer
+Dim row As Integer
+Dim column As Integer
+
+Set num = ActiveWorkbook.Sheets("Numerical")
+Set text = ActiveWorkbook.Sheets("Text")
+Set filt = ActiveWorkbook.Sheets("Filtered (Numerical)")
+
+row = 3
+For i = 3 To 552
+    If num.Cells(i, 22).Value <> 4 And num.Cells(i, 22).Value <> 5 And num.Cells(i, 36).Value = num.Cells(i, 37).Value And num.Cells(i, 36).Value = num.Cells(i, 38).Value And num.Cells(i, 36).Value = num.Cells(i, 39).Value And num.Cells(i, 36).Value = num.Cells(i, 40).Value And num.Cells(i, 36).Value = num.Cells(i, 41).Value And num.Cells(i, 36).Value = num.Cells(i, 42).Value And num.Cells(i, 36).Value = num.Cells(i, 43).Value And num.Cells(i, 36).Value = num.Cells(i, 44).Value And num.Cells(i, 36).Value = num.Cells(i, 45).Value And num.Cells(i, 36).Value = num.Cells(i, 46).Value And num.Cells(i, 36).Value = num.Cells(i, 47).Value And num.Cells(i, 36).Value = num.Cells(i, 48).Value Then
+            num.Rows(i).EntireRow.Delete
+            row = row + 1
+    End If
+Next i
+End Sub
