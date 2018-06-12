@@ -1,0 +1,20 @@
+Sub no_own_isolation()
+
+Dim num As Worksheet
+Dim text As Worksheet
+Dim iso As Worksheet
+Dim i As Integer
+Dim row As Integer
+
+Set num = ActiveWorkbook.Sheets("Numerical")
+Set text = ActiveWorkbook.Sheets("Text")
+Set filt = ActiveWorkbook.Sheets("Filtered (Numerical)")
+
+row = 3
+For i = 3 To 552
+    If num.Cells(i, 19).Value = 9 Then
+            num.Rows(i).EntireRow.Copy Destination:=filt.Range("A" & row)
+            row = row + 1
+    End If
+Next i
+End Sub
