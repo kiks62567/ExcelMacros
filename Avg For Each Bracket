@@ -24,7 +24,7 @@ Sub Average_Income()
     High = 12
     Top = 13
 
-    For i = 2 To 1000
+    For i = 2 To 1500
         If data.Cells(Total, 18).Value <> 0 Then
             avg.Cells(i, 2) = data.Cells(Total, 19).Value / data.Cells(Total, 18).Value
             Total = Total + 8
