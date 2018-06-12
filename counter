@@ -1,0 +1,98 @@
+Sub counter()
+
+Dim filt As Worksheet
+Dim i As Integer
+Dim row As Integer
+Dim a As Integer
+Dim b As Integer
+Dim c As Integer
+Dim same As Integer
+Dim other As Integer
+Dim ye As Integer
+Dim ya As Integer
+Dim nowever As Integer
+Dim whatever As Integer
+Dim stuff As Integer
+Dim random As Integer
+
+
+Set num = ActiveWorkbook.Sheets("Numerical")
+Set text = ActiveWorkbook.Sheets("Text")
+Set filt = ActiveWorkbook.Sheets("Filtered (Numerical)")
+
+a = 0
+b = 0
+c = 0
+same = 0
+other = 0
+ye = 0
+ya = 0
+nowever = 0
+whatever = 0
+random = 0
+stuff = 0
+row = 3
+For i = 3 To 135
+    If filt.Cells(i, 68).Value = 1 Then
+        a = a + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 2 Then
+        b = b + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 3 Then
+        c = c + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 4 Then
+        same = same + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 5 Then
+        other = other + 1
+        row = row + 1
+    
+    ElseIf filt.Cells(i, 68).Value = 6 Then
+        ye = ye + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 7 Then
+        ya = ya + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 8 Then
+        random = random + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 9 Then
+        stuff = stuff + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 10 Then
+        nowever = nowever + 1
+        row = row + 1
+        
+    ElseIf filt.Cells(i, 68).Value = 11 Then
+        whatever = whatever + 1
+        row = row + 1
+    
+    Else
+        row = row + 1
+    End If
+Next i
+
+filt.Cells(138, 1).Value = a
+filt.Cells(138, 2).Value = b
+filt.Cells(138, 3).Value = c
+filt.Cells(138, 4).Value = same
+filt.Cells(138, 5).Value = other
+filt.Cells(138, 6).Value = ye
+filt.Cells(138, 7).Value = ya
+filt.Cells(138, 8).Value = random
+filt.Cells(138, 9).Value = stuff
+filt.Cells(138, 10).Value = nowever
+filt.Cells(138, 11).Value = whatever
+
+
+End Sub
