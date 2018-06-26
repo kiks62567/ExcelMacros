@@ -1,0 +1,19 @@
+Sub JTR()
+
+Dim YTD As Worksheet
+Dim Week As Worksheet
+Dim i As Integer
+Dim r As Integer
+
+Set YTD = ActiveWorkbook.Sheets("Item YTD")
+Set Week = ActiveWorkbook.Sheets("Item Week")
+
+With Sheets("Item YTD")
+    .Rows(8 & ":" & .Rows.Count).Delete
+End With
+
+With Sheets("Item Week")
+    .Rows(8 & ":" & .Rows.Count).Delete
+End With
+
+End Sub
