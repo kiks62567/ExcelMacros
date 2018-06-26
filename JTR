@@ -8,8 +8,8 @@ Dim r As Integer
 Set YTD = ActiveWorkbook.Sheets("Item YTD")
 Set Week = ActiveWorkbook.Sheets("Item Week")
 
-YTD.Columns("A:F").EntireColumn.Cut
-
+YTD.Columns("A:F").Delete Shift:=xlToRight
+    
 'With Sheets("Item YTD")
  '   .Rows(8 & ":" & .Rows.Count).Delete
 'End With
