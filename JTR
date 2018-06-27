@@ -2,20 +2,36 @@ Sub JTR()
 
 Dim YTD As Worksheet
 Dim Week As Worksheet
+Dim current_YTD As Worksheet
+Dim current_Week As Worksheet
 Dim i As Integer
 Dim r As Integer
+Dim q As Integer
 
 Set YTD = ActiveWorkbook.Sheets("Item YTD")
 Set Week = ActiveWorkbook.Sheets("Item Week")
+Set current_YTD = ActiveWorkbook.Sheets("YTD")
+Set current_Week = ActiveWorkbook.Sheets("Weekly")
 
-YTD.Columns("A:F").Delete Shift:=xlToRight
-    
-'With Sheets("Item YTD")
- '   .Rows(8 & ":" & .Rows.Count).Delete
-'End With
+For i = 8 To 500
+    If YTD.Cells(i, 7).Text = "#N/A" Then
+        'If true then check if value is null
+        If YTD.Cells(i, 3).Value = 0 Then
+            'If true then add ot Weekly report worksheet
+        End If
+    End If
+Next i
 
-'With Sheets("Item Week")
- '   .Rows(8 & ":" & .Rows.Count).Delete
-'End With
+With Sheets("Item YTD")
+   .Rows(8 & ":" & .Rows.Count).Delete
+End With
+
+YTD.Range("C6").Formula = "=SUM(C8:C500)"
+YTD.Range("D6").Formula = "=SUM(D8:D500)"
+YTD.Range("E6").Formula = "=SUM(E8:E500)"
+YTD.Range("F6").Formula = "=SUM(F8:F500)"
+
+YTD.Range("A8:G200").Value = current_YTD.Range("A4:F200").Value
 
 End Sub
+
