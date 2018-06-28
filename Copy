@@ -1,0 +1,33 @@
+Sub Copy()
+
+'Initializes variables and worksheet
+Dim YTD As Worksheet
+Dim Week As Worksheet
+Dim current_YTD As Worksheet
+Dim current_Week As Worksheet
+Dim WR As Worksheet
+Dim i As Integer
+Dim r As Integer
+Dim q As Integer
+
+'Sets worskheets to specific worksheet
+Set YTD = ActiveWorkbook.Sheets("Item YTD")
+Set Week = ActiveWorkbook.Sheets("Item Week")
+Set current_YTD = ActiveWorkbook.Sheets("YTD")
+Set WR = ActiveWorkbook.Sheets("Weekly Report")
+
+For i = 8 To 500
+    If YTD.Cells(i, 7).Text = "#N/A" Then
+        If YTD.Cells(i, 3) = 0 And YTD.Cells(i, 4) = 0 And YTD.Cells(i, 5) = 0 And YTD.Cells(i, 6) = 0 Then
+            Debug.Print (" No Sales " & YTD.Cells(i, 2))
+        Else
+           WR.Rows(11).EntireRow.Copy
+           WR.Rows(12).Insert shift:=xlDown
+           WR.Range("A12").Value = YTD.Range("A98").Value
+           WR.Range("C12").Value = YTD.Range("B98").Value
+        End If
+    End If
+Next i
+
+
+End Sub
