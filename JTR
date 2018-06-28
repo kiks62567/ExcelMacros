@@ -31,7 +31,10 @@ YTD.Range("D6").Formula = "=SUM(D8:D500)"
 YTD.Range("E6").Formula = "=SUM(E8:E500)"
 YTD.Range("F6").Formula = "=SUM(F8:F500)"
 
-YTD.Range("A8:G200").Value = current_YTD.Range("A4:F200").Value
+YTD.Range("A8:G200").Value = current_YTD.Range("D4:I200").Value
+
+For i = 8 To 200
+    YTD.Cells(i, 7).Formula = "=VLOOKUP(A" & i & ", 'Weekly Report'!A:A,1,FALSE)"
+Next i
 
 End Sub
-
