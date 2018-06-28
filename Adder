@@ -1,0 +1,26 @@
+Sub Adder()
+
+Dim WR As Worksheet
+Dim i As Integer
+Dim r As Integer
+Dim x As Variant
+
+Set WR = ActiveWorkbook.Sheets("Weekly Report")
+Set YTD = ActiveWorkbook.Sheets("YTD")
+
+YTD.Cells(3, 10) = "Categories"
+
+r = 4
+For i = 2 To 200
+    x = WR.Cells(i, 1).Value
+    If TypeName(x) = "Integer" Then
+        Debug.Print x
+    ElseIf TypeName(x) = "String" Then
+        YTD.Cells(r, 10) = x
+        r = r + 1
+    End If
+Next i
+
+Debug.Print WR.Cells(14, 1).Value
+
+End Sub
