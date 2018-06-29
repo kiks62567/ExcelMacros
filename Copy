@@ -23,8 +23,8 @@ For i = 8 To 500
         Else
            WR.Rows(11).EntireRow.Copy
            WR.Rows(12).Insert shift:=xlDown
-           WR.Range("A12").Value = YTD.Range("A98").Value
-           WR.Range("C12").Value = YTD.Range("B98").Value
+           WR.Range("A12").Value = YTD.Range("A" & i).Value
+           WR.Range("C12").Value = YTD.Range("B" & i).Value
         End If
     End If
 Next i
