@@ -36,10 +36,10 @@ For i = 8 To 500
             Week.Rows(i).EntireRow.Copy
             Week.Rows(i).Delete shift:=xlUp
         Else
-           WR.Rows(24).EntireRow.Copy
-           WR.Rows(25).Insert shift:=xlDown
-           WR.Range("A25").Value = Week.Range("C" & i).Value
-           WR.Range("C25").Value = Week.Range("D" & i).Value
+            WR.Rows(33).EntireRow.Copy
+            WR.Rows(34).Insert shift:=xlDown
+            WR.Range("A34").Value = Week.Range("C" & i).Value
+            WR.Range("C34").Value = Week.Range("D" & i).Value
         End If
     End If
 Next i
