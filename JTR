@@ -26,6 +26,10 @@ With Sheets("Item YTD")
    .Rows(8 & ":" & .Rows.Count).Delete
 End With
 
+With Sheets("Item Week")
+   .Rows(8 & ":" & .Rows.Count).Delete
+End With
+
 YTD.Range("C6").Formula = "=SUM(C8:C500)"
 YTD.Range("D6").Formula = "=SUM(D8:D500)"
 YTD.Range("E6").Formula = "=SUM(E8:E500)"
@@ -33,8 +37,14 @@ YTD.Range("F6").Formula = "=SUM(F8:F500)"
 
 YTD.Range("A8:G200").Value = current_YTD.Range("D4:I200").Value
 
+Week.Range("A8:D200").Value = current_Week.Range("B4:E200").Value
+Week.Range("G8:G200").Value = current_Week.Range("F4:F200").Value
+Week.Range("J8:J200").Value = current_Week.Range("H4:H200").Value
+Week.Range("K8:N200").Value = current_Week.Range("J4:M200").Value
+
 For i = 8 To 200
     YTD.Cells(i, 7).Formula = "=VLOOKUP(A" & i & ", 'Weekly Report'!A:A,1,FALSE)"
+    Week.Cells(i, 15).Formula = "=VLOOKUP(C" & i & ", 'Weekly Report'!A:A,1,FALSE)"
 Next i
 
 End Sub
