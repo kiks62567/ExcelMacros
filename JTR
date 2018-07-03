@@ -35,6 +35,12 @@ YTD.Range("D6").Formula = "=SUM(D8:D500)"
 YTD.Range("E6").Formula = "=SUM(E8:E500)"
 YTD.Range("F6").Formula = "=SUM(F8:F500)"
 
+Week.Range("G6").Formula = "=SUM(G8:G500)"
+Week.Range("K6").Formula = "=SUM(K8:K500)"
+Week.Range("L6").Formula = "=SUM(L8:L500)"
+Week.Range("M6").Formula = "=SUM(M8:M500)"
+Week.Range("N6").Formula = "=SUM(N8:N500)"
+
 YTD.Range("A8:G200").Value = current_YTD.Range("D4:I200").Value
 
 Week.Range("A8:D200").Value = current_Week.Range("B4:E200").Value
