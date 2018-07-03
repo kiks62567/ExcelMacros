@@ -32,9 +32,9 @@ Next i
 
 For i = 8 To 500
     If Week.Cells(i, 15).Text = "#N/A" Then
-        If YTD.Cells(i, 11) = 0 And YTD.Cells(i, 12) = 0 And YTD.Cells(i, 13) = 0 And YTD.Cells(i, 14) = 0 Then
-            YTD.Rows(i).EntireRow.Copy
-            YTD.Rows(i).Delete shift:=xlUp
+        If Week.Cells(i, 11) = 0 And Week.Cells(i, 12) = 0 And Week.Cells(i, 13) = 0 And Week.Cells(i, 14) = 0 Then
+            Week.Rows(i).EntireRow.Copy
+            Week.Rows(i).Delete shift:=xlUp
         Else
            WR.Rows(24).EntireRow.Copy
            WR.Rows(25).Insert shift:=xlDown
@@ -46,4 +46,3 @@ Next i
 
 
 End Sub
-
