@@ -16,16 +16,16 @@ Set Week = ActiveWorkbook.Sheets("Item Week")
 Set current_YTD = ActiveWorkbook.Sheets("YTD")
 Set WR = ActiveWorkbook.Sheets("Weekly Report")
 
+r = 177
 For i = 8 To 500
     If YTD.Cells(i, 7).Text = "#N/A" Then
         If YTD.Cells(i, 3) = 0 And YTD.Cells(i, 4) = 0 And YTD.Cells(i, 5) = 0 And YTD.Cells(i, 6) = 0 Then
             YTD.Rows(i).EntireRow.Copy
             YTD.Rows(i).Delete shift:=xlUp
         Else
-           WR.Rows(11).EntireRow.Copy
-           WR.Rows(12).Insert shift:=xlDown
-           WR.Range("A12").Value = YTD.Range("A" & i).Value
-           WR.Range("C12").Value = YTD.Range("B" & i).Value
+           WR.Range("A" & r).Value = YTD.Range("A" & i).Value
+           WR.Range("B" & r).Value = YTD.Range("B" & i).Value
+           r = r + 1
         End If
     End If
 Next i
@@ -36,10 +36,9 @@ For i = 8 To 500
             Week.Rows(i).EntireRow.Copy
             Week.Rows(i).Delete shift:=xlUp
         Else
-            WR.Rows(33).EntireRow.Copy
-            WR.Rows(34).Insert shift:=xlDown
-            WR.Range("A34").Value = Week.Range("C" & i).Value
-            WR.Range("C34").Value = Week.Range("D" & i).Value
+            WR.Range("A" & r).Value = Week.Range("C" & i).Value
+            WR.Range("B" & r).Value = Week.Range("D" & i).Value
+            r = r + 1
         End If
     End If
 Next i
