@@ -19,12 +19,13 @@ Set WR = ActiveWorkbook.Sheets("Weekly Report")
 For i = 8 To 500
     If YTD.Cells(i, 7).Text = "#N/A" Then
         If YTD.Cells(i, 3) = 0 And YTD.Cells(i, 4) = 0 And YTD.Cells(i, 5) = 0 And YTD.Cells(i, 6) = 0 Then
-            Debug.Print (" No Sales " & YTD.Cells(i, 2))
+            YTD.Rows(i).EntireRow.Copy
+            YTD.Rows(i).Delete shift:=xlUp
         Else
-           WR.Rows(11).EntireRow.Copy
-           WR.Rows(12).Insert shift:=xlDown
-           WR.Range("A12").Value = YTD.Range("A" & i).Value
-           WR.Range("C12").Value = YTD.Range("B" & i).Value
+           'WR.Rows(11).EntireRow.Copy
+           'WR.Rows(12).Insert shift:=xlDown
+          ' WR.Range("A12").Value = YTD.Range("A" & i).Value
+          ' WR.Range("C12").Value = YTD.Range("B" & i).Value
         End If
     End If
 Next i
