@@ -1,0 +1,17 @@
+Sub ranking()
+
+Dim raw As Worksheet
+Dim ranking As Worksheet
+Dim i As Integer
+
+Set raw = ActiveWorkbook.Sheets("Sheet3")
+Set ranking = ActiveWorkbook.Sheets("Rankings")
+
+last_Row = raw.UsedRange.Rows.Count
+
+For i = 2 To last_Row
+    ranking.Cells(i, 1).Value = raw.Cells(i, 1).Value
+    ranking.Cells(i, 2).Value = ((0.5 * (raw.Cells(i, 5))) + (0.25 * (raw.Cells(i, 2))) + (0.25 * (raw.Cells(i, 6))))
+Next i
+
+End Sub
